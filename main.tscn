@@ -1,0 +1,157 @@
+[gd_scene load_steps=18 format=3 uid="uid://ccmtrpo4ffiwt"]
+
+[ext_resource type="PackedScene" uid="uid://cmk0usvudm23r" path="res://box.gltf" id="1_u6hxo"]
+[ext_resource type="Script" path="res://randommaterials.gd" id="2_6eija"]
+[ext_resource type="Script" path="res://3dview.gd" id="2_s0bm6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7updw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdi6l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1war"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ri0ch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukoyv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_coan4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gbt03"]
+sky_top_color = Color(0.329412, 0.435294, 0.713726, 1)
+ground_bottom_color = Color(0.321569, 0.278431, 0.223529, 1)
+
+[sub_resource type="Sky" id="Sky_7stwa"]
+sky_material = SubResource("ProceduralSkyMaterial_gbt03")
+
+[sub_resource type="Environment" id="Environment_3xmfk"]
+background_mode = 2
+sky = SubResource("Sky_7stwa")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jii0c"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kd3y"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.376471, 0.376471, 0.376471, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bagau"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbk84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mdvij"]
+
+[node name="main" instance=ExtResource("1_u6hxo")]
+
+[node name="Cube" parent="." index="0"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_7updw")
+surface_material_override/1 = SubResource("StandardMaterial3D_rdi6l")
+surface_material_override/2 = SubResource("StandardMaterial3D_m1war")
+surface_material_override/3 = SubResource("StandardMaterial3D_ri0ch")
+surface_material_override/4 = SubResource("StandardMaterial3D_ukoyv")
+surface_material_override/5 = SubResource("StandardMaterial3D_coan4")
+script = ExtResource("2_6eija")
+
+[node name="cener_point" type="Marker3D" parent="." index="1"]
+script = ExtResource("2_s0bm6")
+
+[node name="Camera3D" type="Camera3D" parent="cener_point" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 2)
+fov = 87.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
+environment = SubResource("Environment_3xmfk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="3"]
+transform = Transform3D(0.730859, -0.461098, 0.503224, 0.0637495, 0.780187, 0.622289, -0.679545, -0.422725, 0.599601, 0, 0, 0)
+light_color = Color(1, 0.996078, 0.815686, 1)
+sky_mode = 1
+
+[node name="cammode" type="Button" parent="." index="4"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jii0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6kd3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bagau")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbk84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mdvij")
+text = "per"
+
+[node name="camfront" type="Button" parent="." index="5"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 75.0
+offset_right = -10.0
+offset_bottom = 133.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jii0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6kd3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bagau")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbk84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mdvij")
+text = "front"
+
+[node name="camright" type="Button" parent="." index="6"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 140.0
+offset_right = -10.0
+offset_bottom = 198.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jii0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6kd3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bagau")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbk84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mdvij")
+text = "right"
+
+[node name="camleft" type="Button" parent="." index="7"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -103.0
+offset_top = 206.0
+offset_right = -10.0
+offset_bottom = 264.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_jii0c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6kd3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bagau")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gbk84")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mdvij")
+text = "left"
+
+[connection signal="pressed" from="cammode" to="cener_point" method="_on_cammode_pressed"]
+[connection signal="pressed" from="camfront" to="cener_point" method="_on_camfront_pressed"]
+[connection signal="pressed" from="camright" to="cener_point" method="_on_camright_pressed"]
+[connection signal="pressed" from="camleft" to="cener_point" method="_on_camleft_pressed"]
