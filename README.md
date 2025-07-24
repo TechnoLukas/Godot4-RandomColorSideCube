@@ -1,7 +1,5 @@
 # Godot4-RandomColorSideCube
 Godot 4 Cube with random color sides and 3d view
 
-
-
-https://github.com/TechnoLukas/Godot4-RandomColorSideCube/assets/110934679/3572f97a-9ad5-4889-b3fb-0b260ee6fec4
+https://github.com/user-attachments/assets/33224b51-90a0-47d5-a843-9ace4b3ef19d
 
